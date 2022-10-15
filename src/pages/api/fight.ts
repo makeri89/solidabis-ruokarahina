@@ -34,9 +34,11 @@ export default async function handler(
     blueCorner.fat
   )
 
-  const totalTime = simulate(redCornerFighter, blueCornerFighter)
+  const [totalTime, events] = simulate(redCornerFighter, blueCornerFighter)
 
-  console.log('Time elapsed:', totalTime)
+  // console.log('Time elapsed:', totalTime, events)
 
-  res.status(200).json({ hello: 'world' })
+  res
+    .status(200)
+    .json({ redCornerFighter, blueCornerFighter, totalTime, events })
 }
