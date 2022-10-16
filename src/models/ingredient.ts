@@ -2,11 +2,12 @@ export class Ingredient {
   id: string
   name: string
   health: number
-  attackPower: number
+  carbs: number
   protein: number
-  defencePower: number
   fat: number
+  attackPower: number
   delay: number
+  defencePower: number
 
   constructor(
     id: string,
@@ -19,15 +20,32 @@ export class Ingredient {
     this.id = id
     this.name = name
     this.health = energy
-    this.attackPower = carbs
+    this.carbs = carbs
     this.protein = protein
-    this.defencePower = 1 - protein / 100
     this.fat = fat
-    this.delay = carbs + protein + fat
+    this.attackPower = this.getAttackPower()
+    this.defencePower = this.getDefencePower()
+    this.delay = this.getDelay()
+  }
+
+  getHealth(): number {
+    return this.health
+  }
+
+  getAttackPower(): number {
+    return this.carbs
+  }
+
+  getDefencePower(): number {
+    return 1 - this.protein / 100
+  }
+
+  getDelay(): number {
+    return this.carbs + this.protein + this.fat
   }
 
   takeAttack(attacker: Ingredient): [number, Ingredient] {
-    const damage = attacker.attackPower * this.defencePower || 0.01
+    const damage = attacker.getAttackPower() * this.getDefencePower() || 0.01
     const remainingHP = this.health - damage
     const r = new Ingredient(
       this.id,
@@ -38,10 +56,6 @@ export class Ingredient {
       this.fat
     )
     return [damage, r]
-  }
-
-  getHealth(): number {
-    return this.health
   }
 
   toString() {
