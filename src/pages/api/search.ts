@@ -20,7 +20,7 @@ export default async function handler(
 
   const result = data.map((item: any) => ({
     id: item.id,
-    name: item.name,
+    name: item.name.fi,
   }))
 
   res.status(200).json(result)

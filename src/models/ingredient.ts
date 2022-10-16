@@ -1,13 +1,13 @@
 export class Ingredient {
-  id: string
-  name: string
-  health: number
-  carbs: number
-  protein: number
-  fat: number
-  attackPower: number
-  delay: number
-  defencePower: number
+  readonly id: string
+  readonly name: string
+  readonly health: number
+  readonly carbs: number
+  readonly protein: number
+  readonly fat: number
+  readonly attackPower: number
+  readonly delay: number
+  readonly defencePower: number
 
   constructor(
     id: string,
