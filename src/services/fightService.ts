@@ -12,6 +12,7 @@ export const simulate = (
 
   let red = redCornerFighter
   let blue = blueCornerFighter
+  let winner
 
   while (true) {
     if (redTime >= red.delay) {
@@ -40,7 +41,13 @@ export const simulate = (
       blueTime = 0
     }
 
-    if (red.getHealth() <= 0 || blue.getHealth() <= 0) {
+    if (red.getHealth() <= 0) {
+      winner = blue
+      break
+    }
+
+    if (blue.getHealth() <= 0) {
+      winner = red
       break
     }
 
@@ -48,5 +55,5 @@ export const simulate = (
     blueTime += 0.01
     totalTime += 0.01
   }
-  return [totalTime, events]
+  return [winner, totalTime, events]
 }
