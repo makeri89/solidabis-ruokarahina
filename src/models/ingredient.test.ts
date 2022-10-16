@@ -9,10 +9,14 @@ describe('Ingredient', () => {
   })
 
   it('toString method returns name and health', () => {
+    const ingredient = new Ingredient('1', 'test', 100, 10, 10, 10)
+    expect(ingredient.toString()).toBe('test, HP: 100')
+  })
+
+  it('takeAttack does not mutate the ingredient', () => {
     const attacker = new Ingredient('1', 'test', 100, 10, 10, 10)
     const defender = new Ingredient('2', 'test', 100, 10, 10, 10)
-    expect(defender.toString()).toBe('test, HP: 100')
     defender.takeAttack(attacker)
-    expect(defender.toString()).toBe('test, HP: 100')
+    expect(defender.getHealth()).toBe(100)
   })
 })

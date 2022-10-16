@@ -3,7 +3,7 @@
 ## TODO
 
 - [x] Add api endpoint to search data and return only id and name to client to allow for smaller requests
-- [ ] Add api endpoint to fetch ingredient data by id
+- [x] Add api endpoint to fetch ingredient data by id
 - [x] Add classes to model the ingredients for a fight
 - [x] Add api endpoint that simulates a fight and returns fight events and the result
 - [ ] Add unit tests for the models

@@ -15,38 +15,38 @@ export const simulate = (
 
   while (true) {
     if (redTime >= red.delay) {
-      const [damage, defendant] = blue.takeAttack(red)
+      const [damage, defender] = blue.takeAttack(red)
       events.push({
         time: totalTime,
         attacker: red,
-        defender: defendant,
+        defender,
         damage,
-        defenderHealth: defendant.getHealth(),
+        defenderHealth: defender.getHealth(),
       })
-      blue = defendant
+      blue = defender
       redTime = 0
     }
 
     if (blueTime >= blue.delay) {
-      const [damage, defendant] = red.takeAttack(blue)
+      const [damage, defender] = red.takeAttack(blue)
       events.push({
         time: totalTime,
         attacker: blue,
-        defender: defendant,
+        defender,
         damage,
-        defenderHealth: defendant.getHealth(),
+        defenderHealth: defender.getHealth(),
       })
-      red = defendant
+      red = defender
       blueTime = 0
+    }
+
+    if (red.getHealth() <= 0 || blue.getHealth() <= 0) {
+      break
     }
 
     redTime += 0.01
     blueTime += 0.01
     totalTime += 0.01
-
-    if (red.getHealth() <= 0 || blue.getHealth() <= 0) {
-      break
-    }
   }
   return [totalTime, events]
 }

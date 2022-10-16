@@ -36,8 +36,6 @@ export default async function handler(
 
   const [totalTime, events] = simulate(redCornerFighter, blueCornerFighter)
 
-  // console.log('Time elapsed:', totalTime, events)
-
   res
     .status(200)
     .json({ redCornerFighter, blueCornerFighter, totalTime, events })
