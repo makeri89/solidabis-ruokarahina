@@ -21,7 +21,5 @@ export default async function handler(
     data.fat
   )
 
-  console.log(ingredient.toString())
-
-  res.status(200).json(data)
+  res.status(200).json(ingredient)
 }
