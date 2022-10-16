@@ -9,8 +9,8 @@
 - [ ] Add unit tests for the models
 - [ ] Add unit tests for fight simulation functions
 - [ ] Add tests for api endpoints
-- [ ] Add frontend to query for ingredients from backend
-- [ ] Add frontend to select to ingredients for a fight
+- [x] Add frontend to query for ingredients from backend
+- [x] Add frontend to select to ingredients for a fight
 - [ ] Add frontend to show fight results
 - [ ] Add e2e tests to make sure the app works as intended
 - [ ] Add storybook for UI components (maybe also chromatic)
