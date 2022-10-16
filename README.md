@@ -1,5 +1,16 @@
 # Ruokarahina
 
+## Setting up locally
+
+Make sure you have `yarn` installed on your machine and run
+
+```
+yarn
+yarn dev
+```
+
+The application should be available at http://localhost:3000.
+
 ## TODO
 
 - [x] Add api endpoint to search data and return only id and name to client to allow for smaller requests
