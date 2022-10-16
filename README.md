@@ -14,6 +14,7 @@
 - [ ] Add frontend to show fight results
 - [ ] Add e2e tests to make sure the app works as intended
 - [ ] Add storybook for UI components (maybe also chromatic)
+- [ ] Set up Github Actions to automate deploying the app
 
 ## Fight event spec
 
