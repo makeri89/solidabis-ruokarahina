@@ -17,8 +17,8 @@ The application should be available at http://localhost:3000.
 - [x] Add api endpoint to fetch ingredient data by id
 - [x] Add classes to model the ingredients for a fight
 - [x] Add api endpoint that simulates a fight and returns fight events and the result
-- [ ] Add unit tests for the models
-- [ ] Add unit tests for fight simulation functions
+- [x] Add unit tests for the models
+- [x] Add unit tests for fight simulation functions
 - [ ] Add tests for api endpoints
 - [x] Add frontend to query for ingredients from backend
 - [x] Add frontend to select to ingredients for a fight
