@@ -1,4 +1,4 @@
-import { Container, Title } from '@mantine/core'
+import { Group, Title } from '@mantine/core'
 import Link from 'next/link'
 
 interface Props {
@@ -7,10 +7,10 @@ interface Props {
 
 const Page = ({ children }: Props) => {
   return (
-    <Container>
+    <Group sx={{ flexDirection: 'column', gap: '10px' }}>
       <Link href="/">
         <Title
-          m={10}
+          mt={10}
           p={10}
           sx={{
             cursor: 'pointer',
@@ -23,7 +23,7 @@ const Page = ({ children }: Props) => {
         </Title>
       </Link>
       {children}
-    </Container>
+    </Group>
   )
 }
 

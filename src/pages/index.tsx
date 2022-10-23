@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
 import { useSearch } from '@lib/hooks/useSearch'
-import { Button, TextInput } from '@mantine/core'
+import { Button, Group, Text, TextInput } from '@mantine/core'
 import SearchResult from '@ui/SearchResult'
 import FighterPair from '@ui/FighterPair'
 import { useRouter } from 'next/router'
@@ -20,8 +20,11 @@ const Home: NextPage = () => {
   return (
     <Page>
       <FighterPair />
-      <Button onClick={handleFight}>Fight!</Button>
-      <TextInput value={search} onChange={(e) => setSearch(e.target.value)} />
+      <Button onClick={handleFight}>Start the fight!</Button>
+      <Group>
+        <Text>Search for ingredients:</Text>
+        <TextInput value={search} onChange={(e) => setSearch(e.target.value)} />
+      </Group>
       <ul style={{ listStyle: 'none' }}>
         {searchResult?.map((item: any) => (
           <SearchResult key={item.id} ingredient={item} />
