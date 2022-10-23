@@ -1,14 +1,22 @@
 import { Ingredient } from '@models/ingredient'
 
+interface Event {
+  time: number
+  attacker: Ingredient
+  defender: Ingredient
+  damage: number
+  defenderHealth: number
+}
+
 export const simulate = (
   redCornerFighter: Ingredient,
   blueCornerFighter: Ingredient
-) => {
+): [Ingredient, number, Array<Event>] => {
   let redTime = 0,
     blueTime = 0,
     totalTime = 0
 
-  const events = []
+  const events: Event[] = []
 
   let red = redCornerFighter
   let blue = blueCornerFighter

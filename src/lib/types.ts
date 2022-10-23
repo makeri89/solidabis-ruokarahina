@@ -9,3 +9,11 @@ export interface Ingredient {
   delay: number
   defencePower: number
 }
+
+export interface Event {
+  time: number
+  attacker: Ingredient
+  defender: Ingredient
+  damage: number
+  defenderHealth: number
+}
