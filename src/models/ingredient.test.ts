@@ -55,4 +55,13 @@ describe('Ingredient', () => {
     expect(newDefender.getHealth()).toBe(99.99)
     expect(damage).toBe(0.01)
   })
+
+  it('health cannot be negative', () => {
+    const attacker = new Ingredient('2', 'test', 100, 60, 60, 60)
+    const defender = new Ingredient('1', 'test', 90, 10, 10, 10)
+    const [_, newIngredient] = defender.takeAttack(attacker)
+    expect(newIngredient.getHealth()).toBe(36)
+    const [__, newIngredient2] = newIngredient.takeAttack(attacker)
+    expect(newIngredient2.getHealth()).toBe(0)
+  })
 })

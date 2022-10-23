@@ -46,7 +46,7 @@ export class Ingredient {
 
   takeAttack(attacker: Ingredient): [number, Ingredient] {
     const damage = attacker.getAttackPower() * this.getDefencePower() || 0.01
-    const remainingHP = this.health - damage
+    const remainingHP = Math.max(this.health - damage, 0)
     const r = new Ingredient(
       this.id,
       this.name,
