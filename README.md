@@ -26,8 +26,9 @@ The application should be available at http://localhost:3000.
 - [ ] Add e2e tests to make sure the app works as intended
 - [ ] Add storybook for UI components (maybe also chromatic)
 - [x] Set up Github Actions to automate deploying the app
-- [ ] Add some 'favourite' ingredients to the frontend
+- [x] Add some 'favourite' ingredients to the frontend
 - [ ] Check all colors in frontend
+- [x] Add loader to be shown when search hasn't completed yet
 
 ## Fight event spec
 
