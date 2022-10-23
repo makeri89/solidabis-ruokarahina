@@ -22,7 +22,7 @@ The application should be available at http://localhost:3000.
 - [ ] Add tests for api endpoints
 - [x] Add frontend to query for ingredients from backend
 - [x] Add frontend to select to ingredients for a fight
-- [ ] Add frontend to show fight results
+- [x] Add frontend to show fight results
 - [ ] Add e2e tests to make sure the app works as intended
 - [ ] Add storybook for UI components (maybe also chromatic)
 - [x] Set up Github Actions to automate deploying the app

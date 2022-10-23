@@ -6,12 +6,14 @@ import SearchResult from '@ui/SearchResult'
 import FighterPair from '@ui/FighterPair'
 import { useRouter } from 'next/router'
 import Page from '@ui/Page'
+import { useFavorites } from '@lib/hooks/useFavorites'
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('')
   const router = useRouter()
 
   const { searchResult } = useSearch(search)
+  const { favorites } = useFavorites()
 
   const handleFight = () => {
     router.push('/results')
@@ -29,6 +31,14 @@ const Home: NextPage = () => {
         {searchResult?.map((item: any) => (
           <SearchResult key={item.id} ingredient={item} />
         ))}
+        {!search && (
+          <>
+            <Text>Pick from favorites:</Text>
+            {favorites?.map((item: any) => (
+              <SearchResult key={item.id} ingredient={item} />
+            ))}
+          </>
+        )}
       </ul>
     </Page>
   )

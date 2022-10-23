@@ -27,13 +27,16 @@ const SearchResult = ({ ingredient }: Props) => {
             ? '#4287f555'
             : 'white',
           borderRadius: 8,
+          justifyContent: 'space-between',
         }}
       >
         <Button color="red" onClick={() => setRedId(ingredient.id)}>
-          RED
+          Set to red corner
         </Button>
         <div>{ingredient.name}</div>
-        <Button onClick={() => setBlueId(ingredient.id)}>BLUE</Button>
+        <Button onClick={() => setBlueId(ingredient.id)}>
+          Set to blue corner
+        </Button>
       </Group>
     </li>
   )
