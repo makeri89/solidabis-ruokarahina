@@ -1,20 +1,43 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test'
 
-test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.describe('front page tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('http://localhost:3000')
+  })
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  test('front page has correct content', async ({ page }) => {
+    await expect(page.getByText('Ruokarahina')).toBeVisible()
 
-  // create a locator
-  const getStarted = page.getByText('Get Started');
+    await expect(page.getByText('Pick from favorites')).toBeVisible()
+  })
 
-  // Expect an attribute "to be strictly equal" to the value.
-  await expect(getStarted).toHaveAttribute('href', '/docs/intro');
+  test('searching hides favorites', async ({ page }) => {
+    await expect(page.getByText('Pick from favorites')).toBeVisible()
+    await page.getByLabel('Search for ingredients:').fill('omena')
+    await expect(page.getByText('Pick from favorites')).not.toBeVisible()
+  })
 
-  // Click the get started link.
-  await getStarted.click();
+  test('selecting a fighter shows fighter', async ({ page }) => {
+    await expect(page.getByText('Fighters')).not.toBeVisible()
+    await page.getByText('Set to red corner').first().click()
+    await expect(page.getByText('Fighters')).toBeVisible()
+  })
 
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
-});
+  test('start fight buttons is disabled if no fighters are set', async ({
+    page,
+  }) => {
+    await expect(page.getByText('Start the fight!')).toBeDisabled()
+    await page.getByText('Set to red corner').first().click()
+    await expect(page.getByText('Start the fight!')).toBeDisabled()
+    await page.getByText('Set to blue corner').first().click()
+    await expect(page.getByText('Start the fight!')).not.toBeDisabled()
+  })
+
+  test('starting a fight navigates to correct page', async ({ page }) => {
+    await page.getByText('Set to red corner').first().click()
+    await page.getByText('Set to blue corner').first().click()
+    await expect(page.getByText('Start the fight!')).not.toBeDisabled()
+    await page.getByText('Start the fight!').click()
+    await expect(page).toHaveURL('http://localhost:3000/results')
+  })
+})
