@@ -8,7 +8,7 @@ export class Ingredient {
   readonly attackPower: number
   readonly delay: number
   readonly defencePower: number
-  readonly link: string
+  readonly link?: string
 
   constructor(
     id: string,
@@ -17,7 +17,7 @@ export class Ingredient {
     carbs: number,
     protein: number,
     fat: number,
-    link: string
+    link?: string
   ) {
     this.id = id
     this.name = name
