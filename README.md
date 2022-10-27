@@ -49,6 +49,7 @@ The application should be available at http://localhost:3000. If the port 3000 w
 - [x] Add some 'favourite' ingredients to the frontend
 - [ ] Check all colors in frontend
 - [x] Add loader to be shown when search hasn't completed yet
+- [ ] Add images to ingredients
 
 ## Fight event spec
 
