@@ -8,6 +8,7 @@ export class Ingredient {
   readonly attackPower: number
   readonly delay: number
   readonly defencePower: number
+  readonly link: string
 
   constructor(
     id: string,
@@ -15,7 +16,8 @@ export class Ingredient {
     energy: number,
     carbs: number,
     protein: number,
-    fat: number
+    fat: number,
+    link: string
   ) {
     this.id = id
     this.name = name
@@ -23,6 +25,7 @@ export class Ingredient {
     this.carbs = carbs
     this.protein = protein
     this.fat = fat
+    this.link = link
     this.attackPower = this.getAttackPower()
     this.defencePower = this.getDefencePower()
     this.delay = this.getDelay()
@@ -53,7 +56,8 @@ export class Ingredient {
       remainingHP,
       this.attackPower,
       this.protein,
-      this.fat
+      this.fat,
+      this.link
     )
     return [damage, r]
   }
