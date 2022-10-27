@@ -1,4 +1,4 @@
-import { FAVORITE_IDS } from '@lib/constants'
+import { FAVORITE_IDS, FAVORITES } from '@lib/constants'
 import { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
 import { Ingredient } from '@models/ingredient'
@@ -16,11 +16,12 @@ export default async function handler(
   const ingredients = awaited.map(({ data }) => {
     return new Ingredient(
       data.id,
-      data.name.fi,
+      FAVORITES[data.id].name,
       data.energyKcal,
       data.carbohydrate,
       data.protein,
-      data.fat
+      data.fat,
+      FAVORITES[data.id].url
     )
   })
 

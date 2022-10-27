@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
 import { Ingredient } from '@models/ingredient'
+import { FAVORITE_IDS, FAVORITES } from '@lib/constants'
 
 export default async function handler(
   req: NextApiRequest,
@@ -12,24 +13,32 @@ export default async function handler(
     `https://fineli.fi/fineli/api/v1/foods/${id}`
   )
 
-  const { data: imageData } = await axios.get(
-    'https://www.googleapis.com/customsearch/v1',
-    {
-      params: {
-        key: process.env.GOOGLE_API_KEY,
-        cx: process.env.GOOGLE_SEARCH_ENGINE_ID,
-        q: data.name.fi,
-        hl: 'fi',
-        searchType: 'image',
-      },
-    }
-  )
+  let link
+  let name
 
-  const link = imageData.items[0].link
+  if (FAVORITE_IDS.includes(data.id)) {
+    link = FAVORITES[data.id].url
+    name = FAVORITES[data.id].name
+  } else {
+    const { data: imageData } = await axios.get(
+      'https://www.googleapis.com/customsearch/v1',
+      {
+        params: {
+          key: process.env.GOOGLE_API_KEY,
+          cx: process.env.GOOGLE_SEARCH_ENGINE_ID,
+          q: data.name.fi,
+          hl: 'fi',
+          searchType: 'image',
+        },
+      }
+    )
+    link = imageData.items[0].link
+    name = data.name.fi
+  }
 
   const ingredient = new Ingredient(
     data.id,
-    data.name.fi,
+    name,
     data.energyKcal,
     data.carbohydrate,
     data.protein,
