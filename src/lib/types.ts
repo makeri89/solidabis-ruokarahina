@@ -5,6 +5,7 @@ export interface Ingredient {
   carbs: number
   protein: number
   fat: number
+  link?: string
   attackPower: number
   delay: number
   defencePower: number
