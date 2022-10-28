@@ -38,6 +38,6 @@ test.describe('front page tests', () => {
     await page.getByText('Set to blue corner').first().click()
     await expect(page.getByText('Start the fight!')).not.toBeDisabled()
     await page.getByText('Start the fight!').click()
-    await expect(page).toHaveURL('http://localhost:3000/results')
+    await expect(page).toHaveURL('/results')
   })
 })
