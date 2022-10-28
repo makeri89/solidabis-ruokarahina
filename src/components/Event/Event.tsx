@@ -1,25 +1,8 @@
-import { Text, Title } from '@mantine/core'
 import { Event as EventType } from '@lib/types'
-import { CSSProperties } from 'react'
+import InfoPair from '@ui/InfoPair'
 
 interface Props {
   event: EventType
-}
-
-const InfoPair = ({
-  label,
-  value,
-  style,
-}: {
-  label: string
-  value: string
-  style?: CSSProperties
-}) => {
-  return (
-    <div style={style}>
-      <Title order={3}>{label}</Title> <Text>{value}</Text>
-    </div>
-  )
 }
 
 const Event = ({ event }: Props) => {

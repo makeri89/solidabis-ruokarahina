@@ -15,7 +15,7 @@ const customJestConfig = {
     '^@models/(.*)$': '<rootDir>/models/$1',
     '^@services/(.*)$': '<rootDir>/services/$1',
   },
-  modulePathIgnorePatterns: ['tests'],
+  modulePathIgnorePatterns: ['e2e'],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

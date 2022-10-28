@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('front page tests', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:3000')
+    await page.goto('/')
   })
 
   test('front page has correct content', async ({ page }) => {
@@ -38,6 +38,6 @@ test.describe('front page tests', () => {
     await page.getByText('Set to blue corner').first().click()
     await expect(page.getByText('Start the fight!')).not.toBeDisabled()
     await page.getByText('Start the fight!').click()
-    await expect(page).toHaveURL('http://localhost:3000/results')
+    await expect(page).toHaveURL('/results')
   })
 })
