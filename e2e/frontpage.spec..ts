@@ -7,7 +7,7 @@ test.describe('front page tests', () => {
 
   test('front page has correct content', async ({ page }) => {
     const title = page.getByRole('heading', { level: 1 })
-    await expect(title.getByText('Ruokärahinä')).toBeVisible()
+    await expect(title.getByText('Ruokarähinä')).toBeVisible()
 
     await expect(page.getByText('Pick from favorites')).toBeVisible()
   })
