@@ -32,7 +32,7 @@ The frontend code is located in folders `src/pages/`, `src/components/` and `src
 
 ## Setting up locally
 
-To run this projet locally, you need to have a Google [Programmable Search Engine](https://programmablesearchengine.google.com) that is connected to your Google Cloud account. You can follow [this tutorial](https://developers.google.com/custom-search/docs/tutorial/creatingcse) to set one up.
+To run this projet locally, you need to have a Google [Programmable Search Engine](https://programmablesearchengine.google.com) that is connected to your Google Cloud account. You can follow [this tutorial](https://developers.google.com/custom-search/docs/tutorial/creatingcse) to set one up. It might help with the results to specify some keywords to use with the searches, such as `ruoka`, `juoma` and `food`.
 
 Rename `.env.example` to `.env.local` and replace the placeholders with your google api key and custom search engine id.
 
