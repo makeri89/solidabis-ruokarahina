@@ -2,7 +2,7 @@ import { colors } from '@lib/colors'
 import { useIngredient } from '@lib/hooks/useIngredient'
 import { blueState, redState } from '@lib/store'
 import { Group, Loader, Text, Title } from '@mantine/core'
-import IngredientCard from '@ui/IngredientCard'
+import Fighter from '@ui/Fighter'
 import { useRecoilValue } from 'recoil'
 
 const FighterPair = () => {
@@ -28,46 +28,13 @@ const FighterPair = () => {
         p={10}
         sx={{ background: colors.greenOpaque, borderRadius: '8px' }}
       >
-        <Group
-          p={10}
-          sx={{
-            flexDirection: 'column',
-            background: colors.red,
-            borderRadius: '15px',
-            color: 'white',
-          }}
-        >
-          <Text weight={600}>In the red corner:</Text>
-          {!redId ? (
-            <Text>No fighter yet</Text>
-          ) : redLoading ? (
-            <Loader />
-          ) : (
-            <div>
-              <IngredientCard ingredient={red} />
-            </div>
-          )}
-        </Group>
-        <Group
-          p={10}
-          sx={{
-            flexDirection: 'column',
-            background: colors.blue,
-            borderRadius: '15px',
-            color: 'white',
-          }}
-        >
-          <Text weight={600}>In the blue corner:</Text>
-          {!blueId ? (
-            <Text>No fighter yet</Text>
-          ) : blueLoading ? (
-            <Loader />
-          ) : (
-            <div>
-              <IngredientCard ingredient={blue} />
-            </div>
-          )}
-        </Group>
+        <Fighter id={redId} loading={redLoading} color="red" ingredient={red} />
+        <Fighter
+          id={blueId}
+          loading={blueLoading}
+          color="blue"
+          ingredient={blue}
+        />
       </Group>
     </>
   )
