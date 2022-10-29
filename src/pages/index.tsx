@@ -10,6 +10,7 @@ import { useFavorites } from '@lib/hooks/useFavorites'
 import { useRecoilValue } from 'recoil'
 import { blueState, redState } from '@lib/store'
 import ActionButton from '@ui/ActionButton'
+import ResultList from '@ui/ResultList'
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('')
@@ -42,28 +43,11 @@ const Home: NextPage = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </Group>
-      <ul style={{ listStyle: 'none' }}>
-        {search ? (
-          <>
-            {searchResult?.map((item: any) => (
-              <li key={item.id}>
-                <SearchResult ingredient={item} />
-              </li>
-            ))}
-            {isLoading && <Loader />}
-          </>
-        ) : (
-          <>
-            <Text>Pick from favorites:</Text>
-            {favorites?.map((item: any) => (
-              <li key={item.id}>
-                <SearchResult ingredient={item} />
-              </li>
-            ))}
-            {favoritesLoading && <Loader />}
-          </>
-        )}
-      </ul>
+      {!search && <Text weight={600}>Pick from favorites:</Text>}
+      <ResultList
+        results={search ? searchResult : favorites}
+        loading={search ? isLoading : favoritesLoading}
+      />
     </Page>
   )
 }
