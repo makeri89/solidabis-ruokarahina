@@ -2,6 +2,7 @@ import { blueState, redState } from '@lib/store'
 import { Ingredient } from '@lib/types'
 import { Button, Group } from '@mantine/core'
 import { useRecoilState } from 'recoil'
+import { colors } from '@lib/colors'
 
 type SearchedIngredient = Pick<Ingredient, 'id' | 'name'>
 
@@ -22,19 +23,27 @@ const SearchResult = ({ ingredient }: Props) => {
         p={10}
         sx={{
           backgroundColor: selectedToRed
-            ? '#f5424255'
+            ? colors.redOpaque
             : selectedToBlue
-            ? '#4287f555'
+            ? colors.blueOpaque
             : 'white',
           borderRadius: 8,
           justifyContent: 'space-between',
         }}
       >
-        <Button color="red" onClick={() => setRedId(ingredient.id)}>
+        <Button
+          onClick={() => setRedId(ingredient.id)}
+          sx={{
+            backgroundColor: colors.red,
+          }}
+        >
           Set to red corner
         </Button>
         <div>{ingredient.name}</div>
-        <Button onClick={() => setBlueId(ingredient.id)}>
+        <Button
+          onClick={() => setBlueId(ingredient.id)}
+          sx={{ backgroundColor: colors.blue }}
+        >
           Set to blue corner
         </Button>
       </Group>

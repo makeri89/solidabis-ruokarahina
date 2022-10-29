@@ -1,3 +1,4 @@
+import { colors } from '@lib/colors'
 import { Group, Title } from '@mantine/core'
 import Link from 'next/link'
 
@@ -9,18 +10,21 @@ const Page = ({ children }: Props) => {
   return (
     <Group sx={{ flexDirection: 'column', gap: '10px' }}>
       <Link href="/">
-        <Title
-          mt={10}
-          p={10}
-          sx={{
-            cursor: 'pointer',
-            textAlign: 'center',
-            background: '#12345655',
-            borderRadius: '8px',
-          }}
-        >
-          Ruokarahina
-        </Title>
+        <a style={{ textDecoration: 'none' }}>
+          <Title
+            mt={10}
+            p={10}
+            sx={{
+              cursor: 'pointer',
+              textAlign: 'center',
+              color: 'white',
+              background: colors.green,
+              borderRadius: '8px',
+            }}
+          >
+            Ruokarahina
+          </Title>
+        </a>
       </Link>
       {children}
     </Group>

@@ -1,3 +1,4 @@
+import { colors } from '@lib/colors'
 import { useIngredient } from '@lib/hooks/useIngredient'
 import { blueState, redState } from '@lib/store'
 import { Group, Loader, Text, Title } from '@mantine/core'
@@ -25,18 +26,21 @@ const FighterPair = () => {
       <Group
         position="center"
         p={10}
-        sx={{ background: '#12345655', borderRadius: '8px' }}
+        sx={{ background: colors.greenOpaque, borderRadius: '8px' }}
       >
         <Group
           p={10}
           sx={{
             flexDirection: 'column',
-            background: '#f5424255',
+            background: colors.red,
             borderRadius: '15px',
+            color: 'white',
           }}
         >
-          <Text>In the red corner:</Text>
-          {redLoading ? (
+          <Text weight={600}>In the red corner:</Text>
+          {!redId ? (
+            <Text>No fighter yet</Text>
+          ) : redLoading ? (
             <Loader />
           ) : (
             <div>
@@ -48,11 +52,12 @@ const FighterPair = () => {
           p={10}
           sx={{
             flexDirection: 'column',
-            background: '#4287f555',
+            background: colors.blue,
             borderRadius: '15px',
+            color: 'white',
           }}
         >
-          <Text>In the blue corner:</Text>
+          <Text weight={600}>In the blue corner:</Text>
           {!blueId ? (
             <Text>No fighter yet</Text>
           ) : blueLoading ? (

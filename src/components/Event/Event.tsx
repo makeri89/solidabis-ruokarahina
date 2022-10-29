@@ -1,3 +1,4 @@
+import { colors } from '@lib/colors'
 import { Event as EventType } from '@lib/types'
 import InfoPair from '@ui/InfoPair'
 
@@ -12,9 +13,13 @@ const Event = ({ event }: Props) => {
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
         margin: '10px',
-        padding: '10px',
-        border: '1px solid black',
-        background: '#22222255',
+        padding: '15px',
+        border: '2px solid',
+        borderColor: colors.green,
+        background: colors.greenOpaque,
+        borderRadius: '8px',
+        boxShadow:
+          '5px 5px 10px 8px rgba(0, 0, 0, 0.2), inset -5px -5px 10px 8px rgba(0, 0, 0, 0.2)',
       }}
     >
       <InfoPair
