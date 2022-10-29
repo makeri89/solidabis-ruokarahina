@@ -9,7 +9,7 @@ import Page from '@ui/Page'
 import { useFavorites } from '@lib/hooks/useFavorites'
 import { useRecoilValue } from 'recoil'
 import { blueState, redState } from '@lib/store'
-import { colors } from '@lib/colors'
+import ActionButton from '@ui/ActionButton'
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('')
@@ -27,15 +27,11 @@ const Home: NextPage = () => {
   return (
     <Page>
       <FighterPair />
-      <Button
-        disabled={!redId || !blueId}
+      <ActionButton
+        value="Go to fight"
         onClick={handleFight}
-        sx={{
-          backgroundColor: colors.green,
-        }}
-      >
-        Go to fight
-      </Button>
+        disabled={!redId || !blueId}
+      />
       <Group>
         <label htmlFor="search">
           <Text>Search for ingredients:</Text>

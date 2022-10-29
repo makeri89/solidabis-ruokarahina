@@ -12,14 +12,13 @@ const Page = ({ children }: Props) => {
       <Link href="/">
         <a style={{ textDecoration: 'none' }}>
           <Title
-            mt={10}
             p={10}
             sx={{
               cursor: 'pointer',
               textAlign: 'center',
               color: 'white',
               background: colors.green,
-              borderRadius: '8px',
+              borderRadius: '0 0 8px 8px',
             }}
           >
             Ruokarähinä

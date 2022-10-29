@@ -8,6 +8,7 @@ import { Event as EventType } from '@lib/types'
 import { useEffect, useState } from 'react'
 import { colors } from '@lib/colors'
 import Winner from '@ui/Winner'
+import ActionButton from '@ui/ActionButton'
 
 const speeds = {
   slow: 1000,
@@ -75,14 +76,10 @@ const FightResult = () => {
       {!finished && (
         <>
           <FighterPair />
-          <Button
+          <ActionButton
+            value="Start the fight!"
             onClick={() => setTimeRunning(true)}
-            sx={{
-              backgroundColor: colors.green,
-            }}
-          >
-            Start the fight!
-          </Button>
+          />
           {time > 0 && (
             <>
               <Text>Elapsed: {time} s</Text>

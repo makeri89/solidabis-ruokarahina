@@ -51,7 +51,6 @@ The application should be available at http://localhost:3000. If the port 3000 w
 - [x] Add api endpoint that simulates a fight and returns fight events and the result
 - [x] Add unit tests for the models
 - [x] Add unit tests for fight simulation functions
-- [ ] Add tests for api endpoints
 - [x] Add frontend to query for ingredients from backend
 - [x] Add frontend to select to ingredients for a fight
 - [x] Add frontend to show fight results
@@ -59,7 +58,7 @@ The application should be available at http://localhost:3000. If the port 3000 w
 - [x] Add storybook for UI components (maybe also chromatic)
 - [x] Set up Github Actions to automate deploying the app
 - [x] Add some 'favourite' ingredients to the frontend
-- [ ] Check all colors in frontend
+- [x] Check all colors in frontend
 - [x] Add loader to be shown when search hasn't completed yet
 - [x] Add images to ingredients
 
