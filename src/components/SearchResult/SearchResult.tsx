@@ -18,36 +18,41 @@ const SearchResult = ({ ingredient }: Props) => {
   const selectedToBlue = blueId === ingredient.id
 
   return (
-    <li>
-      <Group
-        p={10}
+    <Group
+      p={10}
+      sx={{
+        backgroundColor: selectedToRed
+          ? colors.redOpaque
+          : selectedToBlue
+          ? colors.blueOpaque
+          : 'white',
+        borderRadius: 8,
+        justifyContent: 'space-between',
+      }}
+      data-testid="search-result"
+    >
+      <Button
+        onClick={() => setRedId(ingredient.id)}
         sx={{
-          backgroundColor: selectedToRed
-            ? colors.redOpaque
-            : selectedToBlue
-            ? colors.blueOpaque
-            : 'white',
-          borderRadius: 8,
-          justifyContent: 'space-between',
+          backgroundColor: colors.red,
+          '&:hover': {
+            backgroundColor: colors.red,
+          },
         }}
       >
-        <Button
-          onClick={() => setRedId(ingredient.id)}
-          sx={{
-            backgroundColor: colors.red,
-          }}
-        >
-          Set to red corner
-        </Button>
-        <div>{ingredient.name}</div>
-        <Button
-          onClick={() => setBlueId(ingredient.id)}
-          sx={{ backgroundColor: colors.blue }}
-        >
-          Set to blue corner
-        </Button>
-      </Group>
-    </li>
+        Set to red corner
+      </Button>
+      <div>{ingredient.name}</div>
+      <Button
+        onClick={() => setBlueId(ingredient.id)}
+        sx={{
+          backgroundColor: colors.blue,
+          '&:hover': { backgroundColor: colors.blue },
+        }}
+      >
+        Set to blue corner
+      </Button>
+    </Group>
   )
 }
 

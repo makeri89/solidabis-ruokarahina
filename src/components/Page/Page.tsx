@@ -22,7 +22,7 @@ const Page = ({ children }: Props) => {
               borderRadius: '8px',
             }}
           >
-            Ruokarahina
+            Ruokarähinä
           </Title>
         </a>
       </Link>

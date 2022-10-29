@@ -50,7 +50,9 @@ const Home: NextPage = () => {
         {search ? (
           <>
             {searchResult?.map((item: any) => (
-              <SearchResult key={item.id} ingredient={item} />
+              <li key={item.id}>
+                <SearchResult ingredient={item} />
+              </li>
             ))}
             {isLoading && <Loader />}
           </>
@@ -58,7 +60,9 @@ const Home: NextPage = () => {
           <>
             <Text>Pick from favorites:</Text>
             {favorites?.map((item: any) => (
-              <SearchResult key={item.id} ingredient={item} />
+              <li key={item.id}>
+                <SearchResult ingredient={item} />
+              </li>
             ))}
             {favoritesLoading && <Loader />}
           </>

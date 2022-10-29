@@ -20,6 +20,7 @@ const Fighter = ({ id, loading, color, ingredient }: Props) => {
         borderRadius: '15px',
         color: 'white',
       }}
+      data-testid={`fighter-${color}`}
     >
       <Text weight={600}>In the red corner:</Text>
       {!id ? (
