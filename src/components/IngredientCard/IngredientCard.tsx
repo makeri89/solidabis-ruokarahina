@@ -1,4 +1,4 @@
-import { Card, Image, Text } from '@mantine/core'
+import { Card, Image, Text, Title } from '@mantine/core'
 import { Ingredient } from '@lib/types'
 
 interface Props {
@@ -18,7 +18,7 @@ const IngredientCard = ({ ingredient }: Props) => {
           />
         </Card.Section>
       )}
-      <Text size="lg">{ingredient.name}</Text>
+      <Title order={3}>{ingredient.name}</Title>
       <Text>HP: {ingredient.health.toFixed(2)}</Text>
       <Text>Attack: {ingredient.attackPower.toFixed(2)}</Text>
       <Text>Defence: {ingredient.defencePower.toFixed(2)}</Text>

@@ -6,6 +6,8 @@ import FighterPair from '@ui/FighterPair'
 import Event from '@ui/Event'
 import { Event as EventType } from '@lib/types'
 import { useEffect, useState } from 'react'
+import { colors } from '@lib/colors'
+import Winner from '@ui/Winner'
 
 const speeds = {
   slow: 1000,
@@ -70,10 +72,17 @@ const FightResult = () => {
 
   return (
     <Group sx={{ flexDirection: 'column' }}>
-      <FighterPair />
       {!finished && (
         <>
-          <Button onClick={() => setTimeRunning(true)}>Start fight</Button>
+          <FighterPair />
+          <Button
+            onClick={() => setTimeRunning(true)}
+            sx={{
+              backgroundColor: colors.green,
+            }}
+          >
+            Start the fight!
+          </Button>
           {time > 0 && (
             <>
               <Text>Elapsed: {time} s</Text>
@@ -93,9 +102,9 @@ const FightResult = () => {
           <Event key={event.time} event={event} />
         ))}
         {finished && (
-          <Text size="xl" weight="600">
-            Winner is: {fightResult.winner.name}
-          </Text>
+          <Winner
+            ingredient={{ ...fightResult?.winner, link: '/trophy.webp' }}
+          />
         )}
       </Group>
     </Group>

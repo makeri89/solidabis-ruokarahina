@@ -12,6 +12,7 @@ const Event = ({ event }: Props) => {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '10px',
         margin: '10px',
         padding: '15px',
         border: '2px solid',
