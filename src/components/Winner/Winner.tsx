@@ -28,9 +28,13 @@ const Winner = ({ ingredient }: Props) => {
         alignItems: 'center',
       }}
     >
-      {showConfetti && (
-        <Confetti width={width} height={height} numberOfPieces={400} />
-      )}
+      <Confetti
+        width={width}
+        height={height}
+        numberOfPieces={400}
+        recycle={showConfetti}
+      />
+
       <Title order={3}>Winner is:</Title>
       <IngredientCard ingredient={ingredient} />
     </Box>
