@@ -26,18 +26,18 @@ test.describe('front page tests', () => {
   test('start fight buttons is disabled if no fighters are set', async ({
     page,
   }) => {
-    await expect(page.getByText('Start the fight!')).toBeDisabled()
+    await expect(page.getByText('Go to fight')).toBeDisabled()
     await page.getByText('Set to red corner').first().click()
-    await expect(page.getByText('Start the fight!')).toBeDisabled()
+    await expect(page.getByText('Go to fight')).toBeDisabled()
     await page.getByText('Set to blue corner').first().click()
-    await expect(page.getByText('Start the fight!')).not.toBeDisabled()
+    await expect(page.getByText('Go to fight')).not.toBeDisabled()
   })
 
   test('starting a fight navigates to correct page', async ({ page }) => {
     await page.getByText('Set to red corner').first().click()
     await page.getByText('Set to blue corner').first().click()
-    await expect(page.getByText('Start the fight!')).not.toBeDisabled()
-    await page.getByText('Start the fight!').click()
+    await expect(page.getByText('Go to fight')).not.toBeDisabled()
+    await page.getByText('Go to fight').click()
     await expect(page).toHaveURL('/results')
   })
 })
