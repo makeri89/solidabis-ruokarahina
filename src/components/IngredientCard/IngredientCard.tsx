@@ -18,11 +18,11 @@ const IngredientCard = ({ ingredient }: Props) => {
           />
         </Card.Section>
       )}
-      <Title order={3}>{ingredient.name}</Title>
-      <Text>HP: {ingredient.health.toFixed(2)}</Text>
-      <Text>Attack: {ingredient.attackPower.toFixed(2)}</Text>
-      <Text>Defence: {ingredient.defencePower.toFixed(2)}</Text>
-      <Text>Attack speed: {ingredient.delay.toFixed(2)}</Text>
+      <Title order={3}>{ingredient?.name}</Title>
+      <Text>HP: {ingredient?.health.toFixed(2)}</Text>
+      <Text>Attack: {ingredient?.attackPower.toFixed(2)}</Text>
+      <Text>Defence: {ingredient?.defencePower.toFixed(2)}</Text>
+      <Text>Attack speed: {ingredient?.delay.toFixed(2)}</Text>
     </Card>
   )
 }
