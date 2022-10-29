@@ -9,6 +9,8 @@ export default async function handler(
 ) {
   const { id } = req.query
 
+  console.log('hello', id)
+
   const { data } = await axios.get(
     `https://fineli.fi/fineli/api/v1/foods/${id}`
   )
@@ -45,6 +47,8 @@ export default async function handler(
     data.fat,
     link
   )
+
+  console.log(ingredient)
 
   res.status(200).json(ingredient)
 }
