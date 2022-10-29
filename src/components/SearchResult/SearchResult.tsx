@@ -1,6 +1,6 @@
 import { blueState, redState } from '@lib/store'
 import { Ingredient } from '@lib/types'
-import { Button, Group } from '@mantine/core'
+import { Button, Group, Text } from '@mantine/core'
 import { useRecoilState } from 'recoil'
 import { colors } from '@lib/colors'
 
@@ -28,6 +28,9 @@ const SearchResult = ({ ingredient }: Props) => {
           : 'white',
         borderRadius: 8,
         justifyContent: 'space-between',
+        borderBottom: '1px solid',
+        borderColor: colors.greenOpaque,
+        minWidth: '60vw',
       }}
       data-testid="search-result"
     >
@@ -42,7 +45,15 @@ const SearchResult = ({ ingredient }: Props) => {
       >
         Set to red corner
       </Button>
-      <div>{ingredient.name}</div>
+      <Text
+        sx={{
+          overflowWrap: 'break-word',
+          maxWidth: '400px',
+          textAlign: 'center',
+        }}
+      >
+        {ingredient.name}
+      </Text>
       <Button
         onClick={() => setBlueId(ingredient.id)}
         sx={{
