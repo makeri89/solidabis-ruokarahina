@@ -8,10 +8,10 @@ interface Props {
 const IngredientCard = ({ ingredient }: Props) => {
   return (
     <Card shadow="md" p="md" radius="md" withBorder>
-      {ingredient.link && (
+      {ingredient?.link && (
         <Card.Section>
           <Image
-            src={ingredient.link}
+            src={ingredient?.link}
             alt={ingredient.name}
             height={200}
             width={400}
